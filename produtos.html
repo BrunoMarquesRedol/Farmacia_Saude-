@@ -6,7 +6,7 @@
     <title>Produtos - Saude+</title>
     <link rel="stylesheet" href="css_home_page.css">
     <style>
-       
+      
         nav ul {
             list-style-type: none;
             padding: 0;
@@ -16,34 +16,65 @@
             margin: 0 15px;
         }
         .container {
-            display: flex; /* Flexbox para organizar a sidebar e os produtos */
+            display: flex;
             width: 100%;
-            max-width: 1200px; /* Define um limite para a largura */
+            max-width: 1200px;
         }
         .sidebar {
             width: 200px;
             padding: 20px;
-            background-color: #f0f0f0;
+            background-color: #e0f7fa; /* Azul claro */
         }
         main {
-            flex: 1; /* Permite que o main ocupe o espaço restante */
+            flex: 1;
             padding: 20px;
         }
         .products {
-            display: flex; /* Flexbox para os produtos */
-            flex-wrap: wrap; /* Permite que os produtos quebrem para a próxima linha */
-            justify-content: flex-start; /* Alinha os produtos à esquerda */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
         }
         .product-card {
-            width: 200px; /* Tamanho uniforme */
-            border: 1px solid #ddd;
+            width: 200px;
+            border: 1px solid #b2ebf2; /* Azul mais claro para a borda */
             padding: 10px;
             margin: 10px;
             text-align: center;
+            border-radius: 5px;
+            transition: transform 0.2s;
         }
-        .product-image {
-            max-width: 100%;
-            height: auto;
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+        .filter-container {
+            margin-bottom: 20px;
+            background-color: #b3e5fc; /* Azul claro */
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        label, h3 {
+            color: #3276B5; /* Azul personalizado */
+        }
+        select, input[type="range"], button {
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #3276B5; /* Azul personalizado */
+            border-radius: 4px;
+            width: calc(100% - 22px);
+        }
+        button {
+            background-color: #3276B5; /* Azul personalizado */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #295d8a; /* Azul mais escuro */
+        }
+        .range-labels {
+            display: flex;
+            justify-content: space-between;
         }
     </style>
 </head>
@@ -61,46 +92,52 @@
     </header>
     <div class="container">
         <div class="sidebar">
-            <h3>Filtrar Produtos</h3>
-            <label for="sort">Ordenar por:</label>
-            <select id="sort">
-                <option value="relevance">Relevância</option>
-                <option value="price">Preço</option>
-                <option value="name">Nome</option>
-            </select>
-            <h4>Faixa de Preço</h4>
-            <input type="text" placeholder="Min" />
-            <input type="text" placeholder="Max" />
-            <button>Filtrar</button>
+            <div class="filter-container">
+                <h3>Filtrar Produtos</h3>
+                <label for="sort">Ordenar por:</label>
+                <select id="sort" onchange="sortProducts()">
+                    <option value="relevance">Relevância</option>
+                    <option value="price">Preço</option>
+                    <option value="name">Nome</option>
+                </select>
+                <h4>Faixa de Preço</h4>
+                <div class="range-labels">
+                    <span id="minPriceLabel">0</span>
+                    <span id="maxPriceLabel">50</span>
+                </div>
+                <input type="range" id="minPrice" min="0" max="50" value="0" onchange="updateLabels()" />
+                <input type="range" id="maxPrice" min="0" max="50" value="50" onchange="updateLabels()" />
+                <button onclick="filterProducts()">Filtrar</button>
+            </div>
         </div>
         <main>
             <h2>Produtos em Destaque</h2>
-            <div class="products">
-                <div class="product-card">
+            <div class="products" id="productContainer">
+                <div class="product-card" data-price="10">
                     <img src="dipirona.jpg" alt="Dipirona em Gotas" class="product-image">
                     <h3>Dipirona em Gotas</h3>
                     <p>Descrição do produto 1.</p>
                     <button>Comprar</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-price="20">
                     <img src="dramim.jpg" alt="Dramin em Comprimido" class="product-image">
                     <h3>Dramin em Comprimido</h3>
                     <p>Descrição do produto 2.</p>
                     <button>Comprar</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-price="15">
                     <img src="buscopan.jpg" alt="Buscopan em Gotas" class="product-image">
                     <h3>Buscopan em Gotas</h3>
                     <p>Descrição do produto 3.</p>
                     <button>Comprar</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-price="30">
                     <img src="amoxicilina.jpg" alt="Amoxicilina" class="product-image">
                     <h3>Amoxicilina</h3>
                     <p>Descrição do produto 4.</p>
                     <button>Comprar</button>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-price="25">
                     <img src="paracetamol.jpg" alt="Paracetamol em Comprimido" class="product-image">
                     <h3>Paracetamol em Comprimido</h3>
                     <p>Descrição do produto 5.</p>
@@ -109,8 +146,63 @@
             </div>
         </main>
     </div>
+
+
+    
     <footer>
         <p>&copy; 2024 Saude+. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        const products = Array.from(document.querySelectorAll('.product-card'));
+
+        function sortProducts() {
+            const sortValue = document.getElementById('sort').value;
+            let sortedProducts;
+
+            if (sortValue === 'price') {
+                sortedProducts = products.sort((a, b) => {
+                    return parseFloat(a.getAttribute('data-price')) - parseFloat(b.getAttribute('data-price'));
+                });
+            } else if (sortValue === 'name') {
+                sortedProducts = products.sort((a, b) => {
+                    return a.querySelector('h3').textContent.localeCompare(b.querySelector('h3').textContent);
+                });
+            } else {
+                sortedProducts = products; // Relevância não altera a ordem
+            }
+
+            displayProducts(sortedProducts);
+        }
+
+        function filterProducts() {
+            const minPrice = parseFloat(document.getElementById('minPrice').value);
+            const maxPrice = parseFloat(document.getElementById('maxPrice').value);
+
+            const filteredProducts = products.filter(product => {
+                const price = parseFloat(product.getAttribute('data-price'));
+                return price >= minPrice && price <= maxPrice;
+            });
+
+            displayProducts(filteredProducts);
+        }
+
+        function updateLabels() {
+            const minPrice = document.getElementById('minPrice').value;
+            const maxPrice = document.getElementById('maxPrice').value;
+
+            document.getElementById('minPriceLabel').textContent = minPrice;
+            document.getElementById('maxPriceLabel').textContent = maxPrice;
+        }
+
+        function displayProducts(productList) {
+            const productContainer = document.getElementById('productContainer');
+            productContainer.innerHTML = '';
+
+            productList.forEach(product => {
+                productContainer.appendChild(product);
+            });
+        }
+    </script>
 </body>
 </html>
