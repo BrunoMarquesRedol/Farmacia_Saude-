@@ -5,6 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos - Saude+</title>
     <link rel="stylesheet" href="css_home_page.css">
+    <style>
+       
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        .container {
+            display: flex; /* Flexbox para organizar a sidebar e os produtos */
+            width: 100%;
+            max-width: 1200px; /* Define um limite para a largura */
+        }
+        .sidebar {
+            width: 200px;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        main {
+            flex: 1; /* Permite que o main ocupe o espaço restante */
+            padding: 20px;
+        }
+        .products {
+            display: flex; /* Flexbox para os produtos */
+            flex-wrap: wrap; /* Permite que os produtos quebrem para a próxima linha */
+            justify-content: flex-start; /* Alinha os produtos à esquerda */
+        }
+        .product-card {
+            width: 200px; /* Tamanho uniforme */
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+        }
+        .product-image {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,47 +59,56 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <section class="products">
+    <div class="container">
+        <div class="sidebar">
+            <h3>Filtrar Produtos</h3>
+            <label for="sort">Ordenar por:</label>
+            <select id="sort">
+                <option value="relevance">Relevância</option>
+                <option value="price">Preço</option>
+                <option value="name">Nome</option>
+            </select>
+            <h4>Faixa de Preço</h4>
+            <input type="text" placeholder="Min" />
+            <input type="text" placeholder="Max" />
+            <button>Filtrar</button>
+        </div>
+        <main>
             <h2>Produtos em Destaque</h2>
-            <table>
-                <tr>
-                    <td class="product-card">
-                        <img src="imagem-produto1.jpg" alt="Produto 1" class="product-image">
-                        <h3>Produto 1</h3>
-                        <p>Descrição do produto 1.</p>
-                        <button>Comprar</button>
-                    </td>
-                    <td class="product-card">
-                        <img src="imagem-produto2.jpg" alt="Produto 2" class="product-image">
-                        <h3>Produto 2</h3>
-                        <p>Descrição do produto 2.</p>
-                        <button>Comprar</button>
-                    </td>
-                    <td class="product-card">
-                        <img src="imagem-produto3.jpg" alt="Produto 3" class="product-image">
-                        <h3>Produto 3</h3>
-                        <p>Descrição do produto 3.</p>
-                        <button>Comprar</button>
-                    </td>
-                    <td class="product-card">
-                        <img src="imagem-produto3.jpg" alt="Produto 3" class="product-image">
-                        <h3>Produto 3</h3>
-                        <p>Descrição do produto 3.</p>
-                        <button>Comprar</button>
-                    </td>
-                    <td class="product-card">
-                        <img src="imagem-produto3.jpg" alt="Produto 3" class="product-image">
-                        <h3>Produto 3</h3>
-                        <p>Descrição do produto 3.</p>
-                        <button>Comprar</button>
-                    </td>
-                   
-                    </td>
-                </tr>
-            </table>
-        </section>
-    </main>
+            <div class="products">
+                <div class="product-card">
+                    <img src="dipirona.jpg" alt="Dipirona em Gotas" class="product-image">
+                    <h3>Dipirona em Gotas</h3>
+                    <p>Descrição do produto 1.</p>
+                    <button>Comprar</button>
+                </div>
+                <div class="product-card">
+                    <img src="dramim.jpg" alt="Dramin em Comprimido" class="product-image">
+                    <h3>Dramin em Comprimido</h3>
+                    <p>Descrição do produto 2.</p>
+                    <button>Comprar</button>
+                </div>
+                <div class="product-card">
+                    <img src="buscopan.jpg" alt="Buscopan em Gotas" class="product-image">
+                    <h3>Buscopan em Gotas</h3>
+                    <p>Descrição do produto 3.</p>
+                    <button>Comprar</button>
+                </div>
+                <div class="product-card">
+                    <img src="amoxicilina.jpg" alt="Amoxicilina" class="product-image">
+                    <h3>Amoxicilina</h3>
+                    <p>Descrição do produto 4.</p>
+                    <button>Comprar</button>
+                </div>
+                <div class="product-card">
+                    <img src="paracetamol.jpg" alt="Paracetamol em Comprimido" class="product-image">
+                    <h3>Paracetamol em Comprimido</h3>
+                    <p>Descrição do produto 5.</p>
+                    <button>Comprar</button>
+                </div>
+            </div>
+        </main>
+    </div>
     <footer>
         <p>&copy; 2024 Saude+. Todos os direitos reservados.</p>
     </footer>
