@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saude+</title>
     <link rel="stylesheet" href="css_home_page.css">
+    <link rel="stylesheet" href="reset_repeticao.css">
 </head>
 <body>
     <header>
         <div class="logo">Saude+</div>
         <nav>
-            <ul>
-                <li><a href="home_page.html">Home</a></li>
+            <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-list">  
                 <li><a href="produtos.html">Produtos</a></li>
                 <li><a href="sobre.html">Sobre Nós</a></li>
                 <li><a href="contato.html">Contato</a></li>
@@ -20,35 +25,14 @@
     </header>
     <main>
         <section class="hero">
-            <h1>Bem-vindo ao Saude+</h1>
+            <h1>Bem-vindo ao <span>Saude+</span></h1>
             <p>Seu marketplace de produtos de saúde e bem-estar.</p>
             <a href="produtos.html" class="cta">Explore nossos produtos</a>
         </section>
     </main>
     <section class="products">
         <h2>Produtos em Destaque</h2>
-        <table>
-            <tr>
-                <td class="product-card">
-                    <img src="imagem-produto1.jpg" alt="Produto 1" class="product-image">
-                    <h3>Produto 1</h3>
-                    <p>Descrição do produto 1.</p>
-                    <button>Comprar</button>
-                </td>
-                <td class="product-card">
-                    <img src="imagem-produto2.jpg" alt="Produto 2" class="product-image">
-                    <h3>Produto 2</h3>
-                    <p>Descrição do produto 2.</p>
-                    <button>Comprar</button>
-                </td>
-                <td class="product-card">
-                    <img src="imagem-produto3.jpg" alt="Produto 3" class="product-image">
-                    <h3>Produto 3</h3>
-                    <p>Descrição do produto 3.</p>
-                    <button>Comprar</button>
-                </td>
-            </tr>
-        </table>
+      
     </section>
 </main>
 <main>
@@ -166,8 +150,6 @@
             items.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
         }
     </script>
-    <footer>
-        <p>&copy; 2024 Saude+. Todos os direitos reservados.</p>
-    </footer>
+    <script src="mobile-navbar.js"></script>
 </body>
 </html>
