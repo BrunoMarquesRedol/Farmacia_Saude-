@@ -1,0 +1,210 @@
+/* CODIGO DO GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* CODIGO DE ESTILIZAÇÃO */
+body {
+    font-family: 'montserrat';
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #0056b3;
+    /* Azul */
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    box-shadow: 0px 2px 10px #000;
+}
+
+a.logo{
+    color: #ddd;
+    text-decoration: none;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight:900;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.hero {
+    background-color: #007bff;
+    /* Azul mais claro */
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.cta {
+    background-color: white;
+    color: #0056b3;
+    /* Azul */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.products,
+.about,
+.contact {
+    padding: 30px;
+    margin-top:8vh;
+    margin-left:12px ;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.product-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    width: 100%;
+    /* Ajusta a imagem para ocupar toda a largura do cartão */
+    border-radius: 10px 10px 0 0;
+    /* Bordas arredondadas na parte superior */
+}
+
+.product-card button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #0056b3;
+    /* Azul */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #393939;
+    /* Azul */
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+footer p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.products {
+    padding: 20px;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.carousel-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-items {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    /* Largura mínima para cada cartão */
+}
+
+.product-image {
+    width: 100%;
+    /* Ajusta a imagem para ocupar toda a largura do cartão */
+    border-radius: 10px 10px 0 0;
+    /* Bordas arredondadas na parte superior */
+}
+
+button.prev,
+button.next {
+    background-color: #0056b3;
+    /* Azul */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+
+.img{
+    float: right;
+    clear: right;
+    width: 400px;
+    height: 300px;
+}
+
+p{
+    font-family: "poppins";
+}
+
+/* input pesquisa */
+input{
+    height: 22px ;
+    border-radius: 5px;
+    border: none;
+}
