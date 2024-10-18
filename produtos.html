@@ -6,7 +6,6 @@
     <title>Produtos - Saude+</title>
     <link rel="stylesheet" href="css_home_page.css">
     <style>
-      
         nav ul {
             list-style-type: none;
             padding: 0;
@@ -21,9 +20,10 @@
             max-width: 1200px;
         }
         .sidebar {
-            width: 200px;
+            width: 400px;
             padding: 20px;
-            background-color: #e0f7fa; /* Azul claro */
+            background-color: #e0f7fa;
+            flex-shrink: 0;
         }
         main {
             flex: 1;
@@ -31,14 +31,15 @@
         }
         .products {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-start;
+            flex-wrap: wrap; /* Permite quebrar para a próxima linha */
+            justify-content: flex-start; /* Alinha à esquerda */
         }
         .product-card {
-            width: 200px;
-            border: 1px solid #b2ebf2; /* Azul mais claro para a borda */
+            width: calc(20% - 10px); /* 5 cartões por linha */
+            height: 400px;
+            border: 1px solid #b2ebf2;
             padding: 10px;
-            margin: 10px;
+            margin: 5px; /* Ajusta o espaçamento entre os cartões */
             text-align: center;
             border-radius: 5px;
             transition: transform 0.2s;
@@ -48,49 +49,48 @@
         }
         .filter-container {
             margin-bottom: 20px;
-            background-color: #b3e5fc; /* Azul claro */
+            background-color: #b3e5fc;
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
         label, h3 {
-            color: #3276B5; /* Azul personalizado */
+            color: #3276B5;
         }
         select, input[type="range"], button {
             margin: 5px 0;
             padding: 10px;
-            border: 1px solid #3276B5; /* Azul personalizado */
+            border: 1px solid #3276B5;
             border-radius: 4px;
             width: calc(100% - 22px);
         }
         button {
-            background-color: #3276B5; /* Azul personalizado */
+            background-color: #3276B5;
             color: white;
             cursor: pointer;
             transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #295d8a; /* Azul mais escuro */
+            background-color: #295d8a;
         }
         .range-labels {
             display: flex;
             justify-content: space-between;
         }
+        h1 {
+            font-family: 'Bold';
+        }
     </style>
 </head>
 <body>
-       <header>
+    <header>
         <div class="logo">Saude+</div>
         <nav>
-            <div class="mobile-menu">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-            <ul class="nav-list">  
+            <ul>
                 <li><a href="home_page.html">Home</a></li>
                 <li><a href="produtos.html">Produtos</a></li>
                 <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="contato.html">Contato</a></li>
             </ul>
         </nav>
     </header>
@@ -98,11 +98,19 @@
         <div class="sidebar">
             <div class="filter-container">
                 <h3>Filtrar Produtos</h3>
+                <label for="category">Categoria:</label>
+                <select id="category" onchange="filterProducts()">
+                    <option value="">Todas</option>
+                    <option value="analgesicos">Analgésicos</option>
+                    <option value="antibioticos">Antibióticos</option>
+                </select>
                 <label for="sort">Ordenar por:</label>
                 <select id="sort" onchange="sortProducts()">
                     <option value="relevance">Relevância</option>
                     <option value="price">Preço</option>
                     <option value="name">Nome</option>
+                    <option value="rating">Avaliação</option>
+                    <option value="date">Data de Lançamento</option>
                 </select>
                 <h4>Faixa de Preço</h4>
                 <div class="range-labels">
@@ -115,48 +123,82 @@
             </div>
         </div>
         <main>
-            <h2>Produtos em Destaque</h2>
+            <div class="h1">
+                <center><h1>Produtos</h1></center>
+            </div>
             <div class="products" id="productContainer">
-                <div class="product-card" data-price="10">
+                <div class="product-card" data-price="10" data-category="analgesicos" data-rating="4">
                     <img src="dipirona.jpg" alt="Dipirona em Gotas" class="product-image">
                     <h3>Dipirona em Gotas</h3>
                     <p>Descrição do produto 1.</p>
                     <button>Comprar</button>
                 </div>
-                <div class="product-card" data-price="20">
+                <div class="product-card" data-price="20" data-category="analgesicos" data-rating="5">
                     <img src="dramim.jpg" alt="Dramin em Comprimido" class="product-image">
                     <h3>Dramin em Comprimido</h3>
                     <p>Descrição do produto 2.</p>
                     <button>Comprar</button>
                 </div>
-                <div class="product-card" data-price="15">
+                <div class="product-card" data-price="15" data-category="analgesicos" data-rating="3">
                     <img src="buscopan.jpg" alt="Buscopan em Gotas" class="product-image">
                     <h3>Buscopan em Gotas</h3>
                     <p>Descrição do produto 3.</p>
                     <button>Comprar</button>
                 </div>
-                <div class="product-card" data-price="30">
+                <div class="product-card" data-price="30" data-category="antibioticos" data-rating="5">
                     <img src="amoxicilina.jpg" alt="Amoxicilina" class="product-image">
                     <h3>Amoxicilina</h3>
                     <p>Descrição do produto 4.</p>
                     <button>Comprar</button>
                 </div>
-                <div class="product-card" data-price="25">
+                <div class="product-card" data-price="25" data-category="analgesicos" data-rating="4">
                     <img src="paracetamol.jpg" alt="Paracetamol em Comprimido" class="product-image">
                     <h3>Paracetamol em Comprimido</h3>
                     <p>Descrição do produto 5.</p>
                     <button>Comprar</button>
                 </div>
+                <div class="product-card" data-price="12" data-category="analgesicos" data-rating="4">
+                    <img src="ibuprofeno.jpg" alt="Ibuprofeno" class="product-image">
+                    <h3>Ibuprofeno</h3>
+                    <p>Descrição do produto 6.</p>
+                    <button>Comprar</button>
+                </div>
+                <div class="product-card" data-price="18" data-category="analgesicos" data-rating="4">
+                    <img src="remedio7.jpg" alt="Remédio 7" class="product-image">
+                    <h3>Remédio 7</h3>
+                    <p>Descrição do produto 7.</p>
+                    <button>Comprar</button>
+                </div>
+                <div class="product-card" data-price="22" data-category="antibioticos" data-rating="5">
+                    <img src="remedio8.jpg" alt="Remédio 8" class="product-image">
+                    <h3>Remédio 8</h3>
+                    <p>Descrição do produto 8.</p>
+                    <button>Comprar</button>
+                </div>
+                <div class="product-card" data-price="28" data-category="analgesicos" data-rating="3">
+                    <img src="remedio9.jpg" alt="Remédio 9" class="product-image">
+                    <h3>Remédio 9</h3>
+                    <p>Descrição do produto 9.</p>
+                    <button>Comprar</button>
+                </div>
+                <div class="product-card" data-price="35" data-category="antibioticos" data-rating="5">
+                    <img src="remedio10.jpg" alt="Remédio 10" class="product-image">
+                    <h3>Remédio 10</h3>
+                    <p>Descrição do produto 10.</p>
+                    <button>Comprar</button>
+                </div>
+                <div class="product-card" data-price="40" data-category="analgesicos" data-rating="4">
+                    <img src="remedio11.jpg" alt="Remédio 11" class="product-image">
+                    <h3>Remédio 11</h3>
+                    <p>Descrição do produto 11.</p>
+                    <button>Comprar</button>
+                </div>
             </div>
         </main>
     </div>
-
-
-    
     <footer>
         <p>&copy; 2024 Saude+. Todos os direitos reservados.</p>
     </footer>
-
     <script>
         const products = Array.from(document.querySelectorAll('.product-card'));
 
@@ -172,6 +214,12 @@
                 sortedProducts = products.sort((a, b) => {
                     return a.querySelector('h3').textContent.localeCompare(b.querySelector('h3').textContent);
                 });
+            } else if (sortValue === 'rating') {
+                sortedProducts = products.sort((a, b) => {
+                    return parseFloat(b.getAttribute('data-rating')) - parseFloat(a.getAttribute('data-rating'));
+                });
+            } else if (sortValue === 'date') {
+                sortedProducts = products; // Implementar ordenação pela data se necessário
             } else {
                 sortedProducts = products; // Relevância não altera a ordem
             }
@@ -182,10 +230,14 @@
         function filterProducts() {
             const minPrice = parseFloat(document.getElementById('minPrice').value);
             const maxPrice = parseFloat(document.getElementById('maxPrice').value);
+            const selectedCategory = document.getElementById('category').value;
 
             const filteredProducts = products.filter(product => {
                 const price = parseFloat(product.getAttribute('data-price'));
-                return price >= minPrice && price <= maxPrice;
+                const category = product.getAttribute('data-category');
+
+                return price >= minPrice && price <= maxPrice && 
+                       (selectedCategory === "" || category === selectedCategory);
             });
 
             displayProducts(filteredProducts);
@@ -208,6 +260,5 @@
             });
         }
     </script>
-     <script src="mobile-navbar.js"></script>
 </body>
 </html>
