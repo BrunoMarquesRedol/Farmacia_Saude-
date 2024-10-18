@@ -1,68 +1,34 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-
-header {
-    background-color: #0056b3; /* Azul */
-    color: white;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header .logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
+section h1 span{
+    color: var( --cor--sexta);
 }
 
 .hero {
-    background-color: #007bff; /* Azul mais claro */
     color: white;
-    padding: 50px 20px;
+    padding: 20px 20px 40px;
     text-align: center;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(90deg, var(--cor--quartenaria),  var( --cor--quinta),   var(--cor--quartenaria) );   
+}
+
+.hero p{
+    margin-bottom: 30px;
 }
 
 .cta {
-    background-color: white;
-    color: #0056b3; /* Azul */
+    background-color: var(--cor--terciaria);
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
+    color: white;
+    text-align: center;
 }
 
-.products, .about, .contact {
-    padding: 20px;
-}
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
 
 .product-card {
     background-color: white;
     border: 1px solid #ddd;
-    border-radius: 10px; /* Bordas arredondadas */
+    border-radius: 10px; 
     padding: 20px;
     text-align: center;
     margin: 10px;
@@ -70,28 +36,19 @@ table {
 }
 
 .product-image {
-    width: 100%; /* Ajusta a imagem para ocupar toda a largura do cartão */
-    border-radius: 10px 10px 0 0; /* Bordas arredondadas na parte superior */
+    width: 100%;
+    border-radius: 10px 10px 0 0; 
 }
 
 .product-card button {
     padding: 10px 15px;
     border: none;
-    background-color: #0056b3; /* Azul */
+    background-color: var(--cor--secundaria);
     color: white;
     border-radius: 5px;
     cursor: pointer;
 }
 
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #0056b3; /* Azul */
-    color: white;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
 .products {
     padding: 20px;
 }
@@ -115,21 +72,21 @@ footer {
 .product-card {
     background-color: white;
     border: 1px solid #ddd;
-    border-radius: 10px; /* Bordas arredondadas */
+    border-radius: 10px; 
     padding: 20px;
     text-align: center;
     margin: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    min-width: 200px; /* Largura mínima para cada cartão */
+    min-width: 200px; 
 }
 
 .product-image {
-    width: 100%; /* Ajusta a imagem para ocupar toda a largura do cartão */
-    border-radius: 10px 10px 0 0; /* Bordas arredondadas na parte superior */
+    width: 100%; 
+    border-radius: 10px 10px 0 0; 
 }
 
 button.prev, button.next {
-    background-color: #0056b3; /* Azul */
+    background-color: var(--cor--secundaria);
     color: white;
     border: none;
     border-radius: 5px;
@@ -148,3 +105,4 @@ button.prev {
 button.next {
     right: 10px;
 }
+
