@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saude+</title>
+    <link rel="stylesheet" href="./style/reset_repeticao.css">
+    <link rel="stylesheet" href="./style/index.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Saude+</div>
+        <nav>
+            <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-list">  
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Bem-vindo ao <span>Saude+</span></h1>
+            <p>Seu marketplace de produtos de saúde e bem-estar.</p>
+            <a href="produtos.html" class="cta">Explore nossos produtos</a>
+        </section>
+    </main>
+    <section class="products">
+        <h2>Produtos em Destaque</h2>
+         <img src="./img/propaganda.png" class="propaganda">
+    </section>
+</main>
+<main>
+        <section class="products">
+            <h2>Produtos em Destaque</h2>
+            <div class="carousel">
+                <button class="prev" onclick="moveCarousel(-1)">&#10094;</button>
+                <div class="carousel-container">
+                    <div class="carousel-items">
+                        <div class="product-card">
+                            <img src="./img/amoxicilina.jpg" alt="Produto 1" class="product-image">
+                            <h3>Produto 1</h3>
+                            <p>Descrição do produto 1.</p>
+                            <button>Comprar</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="./img/buscopan.jpg" alt="Produto 2" class="product-image">
+                            <h3>Produto 2</h3>
+                            <p>Descrição do produto 2.</p>
+                            <button>Comprar</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="./img/dipirona.jpg" alt="Produto 3" class="product-image">
+                            <h3>Produto 3</h3>
+                            <p>Descrição do produto 3.</p>
+                            <button>Comprar</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="./img/dramim.jpg" alt="Produto 3" class="product-image">
+                            <h3>Produto 3</h3>
+                            <p>Descrição do produto 3.</p>
+                            <button>Comprar</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="./img/paracetamol.jpg" alt="Produto 3" class="product-image">
+                            <h3>Produto 3</h3>
+                            <p>Descrição do produto 3.</p>
+                            <button>Comprar</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="imagem-produto3.jpg" alt="Produto 3" class="product-image">
+                            <h3>Produto 3</h3>
+                            <p>Descrição do produto 3.</p>
+                            <button>Comprar</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="imagem-produto3.jpg" alt="Produto 3" class="product-image">
+                            <h3>Produto 3</h3>
+                            <p>Descrição do produto 3.</p>
+                            <button>Comprar</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="imagem-produto3.jpg" alt="Produto 3" class="product-image">
+                            <h3>Produto 3</h3>
+                            <p>Descrição do produto 3.</p>
+                            <button>Comprar</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="imagem-produto3.jpg" alt="Produto 3" class="product-image">
+                            <h3>Produto 3</h3>
+                            <p>Descrição do produto 3.</p>
+                            <button>Comprar</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="imagem-produto3.jpg" alt="Produto 3" class="product-image">
+                            <h3>Produto 3</h3>
+                            <p>Descrição do produto 3.</p>
+                            <button>Comprar</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="imagem-produto3.jpg" alt="Produto 3" class="product-image">
+                            <h3>Produto 3</h3>
+                            <p>Descrição do produto 3.</p>
+                            <button>Comprar</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="imagem-produto3.jpg" alt="Produto 3" class="product-image">
+                            <h3>Produto 3</h3>
+                            <p>Descrição do produto 3.</p>
+                            <button>Comprar</button>
+                        </div>
+                        <div class="product-card">
+                            <img src="imagem-produto3.jpg" alt="Produto 3" class="product-image">
+                            <h3>Produto 3</h3>
+                            <p>Descrição do produto 3.</p>
+                            <button>Comprar</button>
+                        </div>
+                        <!-- Adicione mais produtos conforme necessário -->
+                    </div>
+                </div>
+                <button class="next" onclick="moveCarousel(1)">&#10095;</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Saude+. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+
+        function moveCarousel(direction) {
+            const items = document.querySelector('.carousel-items');
+            const itemCount = items.children.length;
+
+            currentIndex += direction;
+
+            if (currentIndex < 0) {
+                currentIndex = itemCount - 1; // Volta para o último item
+            } else if (currentIndex >= itemCount) {
+                currentIndex = 0; // Volta para o primeiro item
+            }
+
+            const itemWidth = items.children[0].offsetWidth;
+            items.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+        }
+    </script>
+    <script src="./javascript/mobile-navbar.js"></script>
+</body>
+</html>

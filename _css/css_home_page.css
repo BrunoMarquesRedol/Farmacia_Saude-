@@ -1,0 +1,108 @@
+section h1 span{
+    color: var( --cor--sexta);
+}
+
+.hero {
+    color: white;
+    padding: 20px 20px 40px;
+    text-align: center;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(90deg, var(--cor--quartenaria),  var( --cor--quinta),   var(--cor--quartenaria) );   
+}
+
+.hero p{
+    margin-bottom: 30px;
+}
+
+.cta {
+    background-color: var(--cor--terciaria);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+}
+
+
+
+.product-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px; 
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    width: 100%;
+    border-radius: 10px 10px 0 0; 
+}
+
+.product-card button {
+    padding: 10px 15px;
+    border: none;
+    background-color: var(--cor--secundaria);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.products {
+    padding: 20px;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.carousel-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-items {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px; 
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-width: 200px; 
+}
+
+.product-image {
+    width: 100%; 
+    border-radius: 10px 10px 0 0; 
+}
+
+button.prev, button.next {
+    background-color: var(--cor--secundaria);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
