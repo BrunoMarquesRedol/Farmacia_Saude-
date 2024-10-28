@@ -1,0 +1,79 @@
+-- Criação do banco de dados
+CREATE DATABASE IF NOT EXISTS Farmacia;
+
+-- Seleciona o banco de dados
+USE Farmacia;
+
+-- Tabela de Fornecedores
+CREATE TABLE Fornecedores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_fornecedor VARCHAR(100) NOT NULL,
+    contato VARCHAR(100),
+    telefone VARCHAR(15)
+);
+
+-- Tabela de Categorias
+CREATE TABLE Categorias (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_categoria VARCHAR(50) NOT NULL
+);
+
+-- Tabela de Produtos
+CREATE TABLE Produtos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_produto VARCHAR(100) NOT NULL,
+    descricao_curta VARCHAR(255),
+    descricao_longa TEXT,
+    imgproduto VARCHAR(200) NOT NULL,
+    preco DECIMAL(10, 2) NOT NULL,
+    estoque INT NOT NULL,
+    fornecedor_id INT,
+    categoria_id INT,
+    CONSTRAINT fk_fornecedor FOREIGN KEY (fornecedor_id) REFERENCES Fornecedores(id),
+    CONSTRAINT fk_categoria FOREIGN KEY (categoria_id) REFERENCES Categorias(id)
+);
+
+-- Tabela de Usuários para fazer login ou algo do tipo
+CREATE TABLE Usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL, -- Usar um hash para armazenar senhas
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Inserção de Categorias
+INSERT INTO Categorias (nome_categoria) 
+VALUES 
+    ('Analgésico'),
+    ('Anti-inflamatório'),
+    ('Antitérmico'),
+    ('Antibiótico'),
+    ('Antialérgico');
+
+-- Inserção de usuários com senhas de exemplo (recomenda-se usar um hash real)
+INSERT INTO Usuarios (nome, username, email, senha) 
+VALUES 
+    ("zz","zz","zz@gmail.com","zz123"),
+    ('Rafaela', 'rafa', 'rafa@gmail.com', 'rafa123'),
+    ('Bruno', 'bruno', 'bruno@gmail.com', 'bruno123'),
+    ('Davi Miranda', 'DaviMiranda', 'davi@gmail.com', 'davi123'),
+    ('Luiz Renato', 'Caco', 'luiz@gmail.com', 'caco123');
+
+-- Inserção de Fornecedores
+INSERT INTO Fornecedores (nome_fornecedor, contato, telefone) 
+VALUES 
+    ('MedSupply', 'contato@medsupply.com', '1234-5678'),
+    ('PharmaPlus', 'suporte@pharmaplus.com', '2345-6789'),
+    ('FarmaFácil', 'info@farmafacil.com', '3456-7890');
+
+-- Inserção de Produtos 
+INSERT INTO Produtos (nome_produto, descricao_curta, descricao_longa, imgproduto, preco, estoque, fornecedor_id, categoria_id) 
+VALUES 
+    ('Amoxilina', 'Antibiótico de uso geral', 'A Amoxilina é um antibiótico usado no tratamento de infecções bacterianas, aliviando dores e febre causadas por diversas condições. Ideal para tratamentos de curta duração.', '../_fotos/amoxicilina.jpg', 15.99, 100, 1, 4),
+    ('Buscopan', 'Analgésico e antiespasmódico', 'O Buscopan é indicado para tratamento de infecções e alívio de dores e desconfortos abdominais. Age rapidamente para reduzir a dor causada por espasmos musculares.', '../_fotos/buscopan.jpg', 49.99, 50, 2, 1),
+    ('Dipirona', 'Antitérmico e analgésico', 'A Dipirona é usada no alívio de dores leves a moderadas e redução da febre. Popular e eficaz, é uma solução segura para diversos tipos de dor e febre.', '../_fotos/dipirona.jpg', 29.99, 150, 3, 3),
+    ('Dramim', 'Antialérgico', 'O Dramim é eficaz para aliviar sintomas de alergia e desconfortos causados por viagens, como náuseas e tonturas. Sua ação proporciona alívio rápido e duradouro.', '../_fotos/dramim.jpg', 19.99, 75, 1, 5),
+    ('Paracetamol', 'Analgésico e antitérmico', 'O Paracetamol é indicado para alívio de dores e redução de febre, com efeitos rápidos e sem causar irritação estomacal. Seguro para o uso diário conforme prescrição médica.', '../_fotos/paracetamol.jpg', 29.99, 150, 3, 3),
+    ('Ibuprofeno', 'Anti-inflamatório e analgésico', 'O Ibuprofeno é utilizado para aliviar dores e inflamações causadas por condições diversas, incluindo dores de cabeça e musculares. Oferece alívio eficaz e duradouro.', '../_fotos/ibuprofeno.jpg', 25.99, 60, 2, 2);

@@ -3,3 +3,120 @@
     padding: 0;
     text-decoration: none;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5fdf5;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2d6a4f;
+    color: white;
+    padding: 15px 10%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #95d5b2; 
+}
+
+.faixa {
+    background-color: #d8f3dc; 
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 80%;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.faixa h1 {
+    font-size: 2em;
+    color: #1b4332;
+}
+
+.faixa p {
+    font-size: 1.1em;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.contact-form {
+    max-width: 500px;
+    background: #ffffff; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #1b4332;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #40916c; 
+    outline: none;
+}
+
+.form-group button {
+    background-color: #1b4332;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.form-group button:hover {
+    background-color: #40916c;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #2d6a4f;
+    color: white;
+    font-size: 0.9em;
+    margin-top: auto;
+}

@@ -1,0 +1,212 @@
+/* RESET CSS */
+*{
+    padding: 0;
+    margin: 0;
+}
+
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+/* CODIGO CSS */
+
+
+/* FUNDO */
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: rgb(87, 173, 242);
+        background: linear-gradient(48deg, rgba(87, 173, 242, 1) 0%, rgba(0, 124, 255, 1) 100%);
+}
+
+/* AREA LOGIN */
+.principal{
+    width: 40vw;
+    height: 80vh;
+    background: rgb(130, 199, 255);
+    background: linear-gradient(48deg, rgba(130, 199, 255, 1) 0%, rgba(0, 124, 255, 1) 100%);
+    box-shadow: 5px 5px 10px #000 ;
+    border-radius: 12px;
+}
+
+.cabecario_login{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px solid #ffffff;
+    background-color: #003b8e;
+    border-top-left-radius: 12px;
+    border-top-right-radius:12px ;
+}
+
+.titulo{
+    color: #fff;
+    font-family: 'Poppins',arial;
+    margin-top: 15px ;
+    margin-bottom: 15px;
+}
+
+.logo{ 
+    padding: 10px;
+    background-color: #006aff;
+    border-radius: 15px;
+    font-size: 34px;
+    font-family: 'poppins',Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    color: #fff;
+}
+
+.formulario{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+label{
+    display: flex;
+    width: 100%;
+    text-align: left;
+    margin-left: 25px;
+    margin-top: 22px;
+    margin-bottom: 5px;
+}
+
+input{
+    display: flex;
+    width: 75%;
+    height: 28px;
+    margin: auto;
+    border-top:none;
+    border-left: none;
+    border-right: none;
+    background-color: #00000000;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+}
+::-webkit-input-placeholder {
+    color: rgb(255, 255, 255);
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    color: rgb(255, 255, 255);
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: rgb(255, 255, 255);
+}
+
+:-ms-input-placeholder {
+    color: rgb(255, 255, 255);
+}
+
+.botoes{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 75%;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    text-shadow: 1px 1px 4px #000;
+}
+
+
+
+.botao_login{
+    width: 130px;
+    border-radius: 5px;
+    border: none;
+    margin: 0;
+    background-color:#00000000;
+    color: #fff;
+    cursor: pointer;
+    text-shadow: 1px 1px 4px #000;
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: 700;
+    font-family: 'poppins',Arial, Helvetica, sans-serif;
+}
+
+.botao_logout{
+    width: 130px;
+    padding: 2px;
+    border-radius: 5px;
+    border: none;
+    background-color: #00000000;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    text-shadow: 1px 1px 4px #000;
+    font-family: 'poppins', Arial, Helvetica, sans-serif;
+}
+
+.botao_login:hover{
+    background-color: #006aff;
+    transform: scale(1.15);
+    transition: transform 0.75s;
+    transition: 0.75s;
+}
+.botao_logout:hover {
+    background-color: #006aff;
+    transform: scale(1.15);
+        transition: transform 0.75s;
+        transition: 0.75s;
+}
+.campo{
+        width: 100%;
+        margin-bottom:12px ;
+}
+
+.nome_campo{
+    color: #fff;
+    font-family: 'poppins';
+    font-weight: 900;
+    text-decoration:underline;
+}
+
+
+
+.mensagem_error{
+    padding: 10px;
+    font-family: Arial;
+    background-color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    width: 350px;
+    box-shadow: 0px 8px 8px #000 ;
+    border-radius: 8px;
+    margin: auto;
+}
+.mensagem_login{
+    flex-wrap: wrap;
+    padding: 10px;
+        font-family: Arial;
+        background-color: rgb(0, 38, 142);
+        color: rgb(255, 255, 255);
+        text-align: center;
+        width: 350px;
+        box-shadow: 0px 8px 8px #000;
+        border-radius: 8px;
+        margin: auto;
+}
+
+.rodape{
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    color: #fff;
+    font-family: 'poppins',arial;
+}

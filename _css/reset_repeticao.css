@@ -14,6 +14,7 @@
     --fonte--secundaria:"DM Serif Text", serif;
 }
 
+
 body {
     margin: 0;
     padding: 0;
@@ -33,7 +34,24 @@ header {
 header .logo {
     font-size: 24px;
     font-weight: bold;
-    font-family: var(--cor--principal);
+    font-family: var(--fonte--principal);
+}
+
+.aba_pesquisa{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.seach{
+    margin: 0;
+    border-radius: 20px;
+    padding: 2px;
+}
+
+.campo_seach{
+    border-radius:30px;
+    border: none;
 }
 
 nav ul {
@@ -46,14 +64,26 @@ nav ul {
 nav ul li {
     margin-left: 20px;
     margin: 0 15px;
+    display: flex;
+    gap: 1px;
 }
 
 nav ul li a {
+    display: flex;
     font-family: var(--cor--secundaria);
     font-weight: 600;
     letter-spacing: 2px;
     color: white;
     text-decoration: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2px;
+}
+
+nav ul li a img{
+    border-radius:20px;
+    margin-right:2px ;
+    padding: 8px;
 }
 
 
@@ -81,8 +111,16 @@ nav ul li a {
     cursor: pointer;
 }
 
+.botao{
+    color: #ffff;
+    text-decoration: none;
+}
+
 .products {
     padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 footer {
@@ -180,4 +218,11 @@ footer {
 *::-webkit-scrollbar-thumb{
     background-color:  #B7E0FF;   
     border-radius: 20px; 
+}
+
+
+.aba_pesquisa{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
