@@ -6,20 +6,19 @@ require_once("../_conexaoPHP/conexao.php");
 session_start();
 $mensagem = "";
 
-if(!isset($_SESSION["user_portal"])){
-    $mensagem_login="";
-}else{
-    $usuario=$_SESSION["user_portal"];
-    $consulta="SELECT nome FROM Usuarios
+if (!isset($_SESSION["user_portal"])) {
+    $mensagem_login = "";
+} else {
+    $usuario = $_SESSION["user_portal"];
+    $consulta = "SELECT nome FROM Usuarios
                 WHERE id = {$usuario}";
-    $saudacao = mysqli_query($conecta,$consulta);
+    $saudacao = mysqli_query($conecta, $consulta);
     $saudacao_login = mysqli_fetch_assoc($saudacao);
     $nome = $saudacao_login['nome'];
-    $mensagem_login="você já conectou a sua conta ". "($nome)" ;
+    $mensagem_login = "você já conectou a sua conta " . "($nome)";
 }
 //condições do fomulario via POST
-if (isset($_POST["usuario"])) {
-    $usuario  =  $_POST['usuario'];
+if (isset($_POST["email"])) {
     $email    =  $_POST['email'];
     $senha    =  $_POST['senha'];
 
@@ -28,7 +27,7 @@ if (isset($_POST["usuario"])) {
     $login .= " FROM Usuarios ";
 
     //ele compara os valores inseridos do imput do login
-    $login .= " WHERE username = '{$usuario}' and  senha = '{$senha}' and email = '{$email}' ";
+    $login .= " WHERE email = '{$email}' and senha = '{$senha}'   ";
 
     //conecta a consulta
     $acesso = mysqli_query($conecta, $login);
@@ -63,68 +62,78 @@ if (isset($_POST["usuario"])) {
 
     <!-- LINKS -->
     <link rel="stylesheet" href="../_css/login.css">
-    <title>Login</title>
+    <title>cadastro</title>
 </head>
 
 <body>
-    <header class="cabeçario"></header>
-    <main class="principal">
-
-        <header class="cabecario_login">
-            <h1 class="titulo">Login</h1>
-            <h1 class="logo">Saude+</h1>
-        </header>
-
-        <form class="formulario" action="login.php" method="post">
-            <div class="campo">
-                <label for="usuario">
-                    <p class="nome_campo">usuario</p>
-                </label>
-                <input type="text" name="usuario" placeholder="insira aqui o usuario">
-            </div>
-
-            <div class="campo">
-                <label for="email">
-                    <p class="nome_campo">email</p>
-                </label>
-                <input type="email" name="email" placeholder="insira aqui a email">
-            </div>
-
-            <div class="campo">
-                <label for="senha">
-                    <p class="nome_campo">senha</p>
-                </label>
-                <input type="password" name="senha" placeholder="insira aqui a senha">
-            </div>
-            <div class="botoes">
-            <input type="submit" class="botao_login" value="Entrar">
-            <a href="../paginas/logout.php" id="logout" class="botao_logout">Logout</a>
-            </div>
-        </form>
-        <p class="mensagem_error" id="mensagemError"><?php if (isset($mensagem)) {
-                                                            echo $mensagem;} ?>
-        </p>
-        <p id="mensagem_login" class="mensagem_login"><?php echo $mensagem_login ?></p>
+    <div class="container">
+        <div class="form-imagem">
+            <img src="../_fotos/img_login.svg" alt="imagem login">
+        </div>
         
-    </main>
-    <footer class="rodape">&copy; feito por Davi Miranda</footer>
+        <div class="form">
+            <form action="login.php" method="post">
+                <div class="form__cabecalho">
+                    <div class="titulo">
+                        
+                        <h1>Login</h1>
+                        
+                    </div>
+                    <div class="logomarca">
+                        <h1 class="logo1">Saude+</h1>
+                            
+                    </div>
+                </div>
+                    <h2 class="saudacoes">Seja bem vindo(a) novamente.</h2>
+
+                    <div class="input_gruop">
+                        <div class="input-box">
+                            <label for="email">Email:</label>
+                            <input id="email" name="email" type="email" placeholder="insira aqui" required>
+                        </div>
+                        <div class="input-box">
+                            <label for="senha">Senha:</label>
+                            <input id="senha" name="senha" type="password" placeholder="insira aqui" required>
+                        </div>
+                    </div>
+                    <div class="botoes">
+                        <div class="box-botoes">
+                            <input type="submit" value="Entrar">
+                        </div>
+                        <div class="box-botoes">
+                            <a href="logout.php">Sair</a>
+                        </div>
+
+                    </div>
+                <div class="sign-up__button">
+                    <a id="sign-up" href="cadastro.php">cadastrar-se<img src="../_fotos/arrow__forward.svg" alt=""></a>
+                </div>
+                <p class="mensagem_error" id="mensagemError"><?php if (isset($mensagem)) {echo $mensagem;} ?></p>
+                <p id="mensagem_login" class="mensagem_login"><?php echo $mensagem_login ?></p>
+            </form>
+        </div>
+         
+    </div>
+
+    
+
+    
 </body>
 <script>
     let mensagemError = document.getElementById("mensagemError");
     if (mensagemError.textContent.trim() === "") {
         mensagemError.style.display = "none";
-    }else{
+    } else {
         mensagemError.style.display = "flex";
     }
 
     let mensagem_logout = document.getElementById("mensagem_login");
 
-    if(mensagem_logout.textContent.trim()==""){
-        mensagem_logout.style.display="none";
-    }else{
-        mensagem_logout.style.display="flex";
+    if (mensagem_logout.textContent.trim() == "") {
+        mensagem_logout.style.display = "none";
+    } else {
+        mensagem_logout.style.display = "flex";
     }
-
 </script>
 
 </html>

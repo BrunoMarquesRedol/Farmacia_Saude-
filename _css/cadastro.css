@@ -1,22 +1,23 @@
 /* RESET CSS */
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'poppins';
+    font-family: 'Poppins';
     color: #fff;
 }
 
-:root{
+/* VARIAVEIS CORES */
+:root {
     --cor--principal: #03346E;
-        
-        --cor--secundaria: #3377b7;
-        --cor--terciaria: #021526;
-        --cor--quartenaria: #EBF4F6 ;
-        --cor--quinta: #BBE9FF;
-        --cor--sexta: #800000;
-        --cor--fundo: #EBF4F6;
-        
+
+    --cor--secundaria: #3377b7;
+    --cor--terciaria: #021526;
+    --cor--quartenaria: #EBF4F6;
+    --cor--quinta: #BBE9FF;
+    --cor--sexta: #800000;
+    --cor--fundo: #EBF4F6;
+
 }
 
 /* GOOGLE FONTS */
@@ -24,42 +25,41 @@
 
 /* CODIGO CSS */
 
-
 /* FUNDO */
-body{
+body {
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:var(--cor--fundo) ;
+    background-color: var(--cor--fundo);
 }
 
 /* AREA LOGIN */
 
-.container{
-    width:80vw;
+.container {
+    width: 80vw;
     height: 80vh;
     display: flex;
     background-color: var(--cor--principal);
     box-shadow: 5px 5px 10px var(--cor--terciaria);
-    
+    flex-direction: row-reverse;
 }
 
-.form-imagem{
+.form-imagem {
     width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--cor--secundaria);
+    background-color: var(--cor--quartenaria);
     padding: 1rem;
 }
 
-.form-imagem img{
+.form-imagem img {
     width: 31rem;
 }
 
-.form{
+.form {
     width: 50%;
     display: flex;
     align-items: center;
@@ -69,19 +69,26 @@ body{
     background-color: var(--cor--principal);
 }
 
-.form__cabecalho{
+.form__cabecalho {
     margin-bottom: 3rem;
     display: flex;
     justify-content: space-between;
+
+}
+
+.titulo h1 {
+    padding: 2px;
+    text-decoration: underline;
     
 }
 
-.titulo h1{
-    padding: 2px;
-    text-decoration: underline;
+.logomarca {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
 }
 
-h1.logo1{
+h1.logo1 {
     padding: 4px;
     background-color: var(--cor--sexta);
     text-decoration: none;
@@ -89,92 +96,61 @@ h1.logo1{
     height: 50px;
     display: flex;
     align-items: center;
-    
+
 }
 
-.logomarca{
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
-}
-
-.sign-up__button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.sign-up__button a{
-        background-color: #02152600;
-        border: none;
-        padding: 0.4rem 1rem;
-        display: flex;
-        align-items: center;
-        transition: 0.2s;
-        justify-content: space-between;
-}
-
-.sign-up__button a:hover{
-    background-color:#02152695;
-    border-radius: 12px;
-    text-shadow: 1px 1px 2px var(--cor--quinta);
-}
-
-.saudacoes{
+.saudacoes {
     margin: auto;
 }
 
-.input_gruop{
+.input_gruop {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 1rem;
-    
+
 }
 
-.input-box{
+.input-box {
     display: flex;
     justify-content: space-between;
     gap: 2rem;
 }
 
-.input-box label{
-    display: flex;
+.input-box label {
     width: 2rem;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.input-box input{
-    border-left:none ;
+.input-box input {
+    border-left: none;
     border-right: none;
     border-top: none;
-    border-bottom:1px solid #fff;
-    color:#fff;
+    border-bottom: 1px solid #fff;
+    color: #fff;
     padding: 2px;
     background-color: var(--cor--terciaria);
-    display: flex;
-    justify-content: flex-end;
 }
 
-.input-box input::after{
+.input-box input::after {
     border-left: none;
     border-right: none;
     border-top: none;
 }
 
-.botoes{
+.botoes {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     padding: 1rem;
 }
 
-.box-botoes{
+.box-botoes {
     display: flex;
-    flex-direction: column;
 }
 
-.box-botoes input{
+.box-botoes input {
     padding: 0.4rem 1rem;
     background-color: var(--cor--secundaria);
     border: none;
@@ -183,28 +159,30 @@ h1.logo1{
     font-size: 15px;
     cursor: pointer;
 }
-.box-botoes a{
+
+.box-botoes a {
     padding: 0.4rem 1rem;
-    background-color:var(--cor--secundaria);
+    background-color: var(--cor--secundaria);
     width: 100%;
     text-decoration: none;
     font-weight: 500;
 }
 
-.box-botoes input:hover{
+.box-botoes input:hover {
     background-color: var(--cor--terciaria);
-        border-radius: 12px;
-        text-shadow: 1px 1px 2px var(--cor--quinta);
-        transition: 0.2s;
-}
-.box-botoes a:hover{
-    background-color: var(--cor--terciaria);
-        border-radius: 12px;
-        text-shadow: 1px 1px 2px var(--cor--quinta);
-        transition: 0.2s;
+    border-radius: 12px;
+    text-shadow: 1px 1px 2px var(--cor--quinta);
+    transition: 0.2s;
 }
 
-.mensagem_error{
+.box-botoes a:hover {
+    background-color: var(--cor--terciaria);
+    border-radius: 12px;
+    text-shadow: 1px 1px 2px var(--cor--quinta);
+    transition: 0.2s;
+}
+
+.mensagem_error {
     margin-top: 12px;
     background-color: var(--cor--sexta);
     color: #EBF4F6;
@@ -212,18 +190,17 @@ h1.logo1{
 
 }
 
-.mensagem_login{
+.mensagem_login {
     margin-top: 12px;
     background-color: var(--cor--terciaria);
     padding: 3px 4px;
     color: #EBF4F6;
 }
 
-
 /* MEDIA */
 
-@media(min-width:1150px){
-    .input-box input{
-        width:22rem;
+@media(min-width:1150px) {
+    .input-box input {
+        width: 22rem;
     }
 }
