@@ -114,6 +114,7 @@ h1.logo1 {
 .input-box {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     gap: 2rem;
 }
 
@@ -162,10 +163,11 @@ h1.logo1 {
 
 .box-botoes a {
     padding: 0.4rem 1rem;
-    background-color: var(--cor--secundaria);
     width: 100%;
     text-decoration: none;
     font-weight: 500;
+    display: flex;
+    align-items: center;
 }
 
 .box-botoes input:hover {

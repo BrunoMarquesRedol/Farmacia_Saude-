@@ -3,15 +3,17 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- LINK -->
     <link href="../_css/cadastro.css" rel="stylesheet">
-    
+
     <title>Cadastro</title>
 </head>
+
 <body>
     <div class="container">
         <div class="form-imagem">
@@ -53,7 +55,7 @@
                         <input type="submit" value="Cadastrar-se">
                     </div>
                     <div class="box-botoes">
-                        <a href="login.php">Entrar</a>
+                        <a href="login.php" class="entrar">Entrar <img src="../_fotos/arrow__forward.svg" alt=""></a>
                     </div>
                 </div>
                 <p class="mesagem_error" id="mensgemError"></p>
@@ -61,6 +63,7 @@
             </form>
         </div>
     </div>
-    
+
 </body>
+
 </html>

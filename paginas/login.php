@@ -1,6 +1,6 @@
 <?php
 //chamando uma vez a conexão no php e sql
-require_once("../_conexaoPHP/conexao.php");
+require_once "../_conexaoPHP/conexao.php";
 
 //inicia e apresenta a variavel de sessão 
 session_start();

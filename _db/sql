@@ -21,10 +21,10 @@ CREATE TABLE Categorias (
 -- Tabela de Produtos
 CREATE TABLE Produtos (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nome_produto VARCHAR(100) NOT NULL,
-    descricao_curta VARCHAR(255),
+    nome_produto VARCHAR 100 NOT NULL,
+    descricao_curta VARCHAR 255,
     descricao_longa TEXT,
-    imgproduto VARCHAR(200) NOT NULL,
+    img_produto VARCHAR(200) NOT NULL,
     preco DECIMAL(10, 2) NOT NULL,
     estoque INT NOT NULL,
     fornecedor_id INT,
@@ -33,7 +33,7 @@ CREATE TABLE Produtos (
     CONSTRAINT fk_categoria FOREIGN KEY (categoria_id) REFERENCES Categorias(id)
 );
 
--- Tabela de Usuários para fazer login ou algo do tipo
+-- Tabela de Usuários
 CREATE TABLE Usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
@@ -52,10 +52,10 @@ VALUES
     ('Antibiótico'),
     ('Antialérgico');
 
--- Inserção de usuários com senhas de exemplo (recomenda-se usar um hash real)
+-- Inserção de Usuários com senhas de exemplo (recomenda-se usar um hash real)
 INSERT INTO Usuarios (nome, username, email, senha) 
 VALUES 
-    ("zz","zz","zz@gmail.com","zz123"),
+    ('zz', 'zz', 'zz@gmail.com', 'zz123'),
     ('Rafaela', 'rafa', 'rafa@gmail.com', 'rafa123'),
     ('Bruno', 'bruno', 'bruno@gmail.com', 'bruno123'),
     ('Davi Miranda', 'DaviMiranda', 'davi@gmail.com', 'davi123'),
@@ -69,7 +69,7 @@ VALUES
     ('FarmaFácil', 'info@farmafacil.com', '3456-7890');
 
 -- Inserção de Produtos 
-INSERT INTO Produtos (nome_produto, descricao_curta, descricao_longa, imgproduto, preco, estoque, fornecedor_id, categoria_id) 
+INSERT INTO Produtos (nome_produto, descricao_curta, descricao_longa, img_produto, preco, estoque, fornecedor_id, categoria_id) 
 VALUES 
     ('Amoxilina', 'Antibiótico de uso geral', 'A Amoxilina é um antibiótico usado no tratamento de infecções bacterianas, aliviando dores e febre causadas por diversas condições. Ideal para tratamentos de curta duração.', '../_fotos/amoxicilina.jpg', 15.99, 100, 1, 4),
     ('Buscopan', 'Analgésico e antiespasmódico', 'O Buscopan é indicado para tratamento de infecções e alívio de dores e desconfortos abdominais. Age rapidamente para reduzir a dor causada por espasmos musculares.', '../_fotos/buscopan.jpg', 49.99, 50, 2, 1),
