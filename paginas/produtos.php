@@ -22,8 +22,8 @@ $saudacao = mysqli_fetch_assoc($usuario);
 
 //consulta de dados dos produtos
 $produtos = "SELECT Produtos.*, Categorias.nome_categoria 
-             FROM Produtos 
-             LEFT JOIN Categorias ON Produtos.categoria_id = Categorias.id";
+            FROM Produtos 
+            LEFT JOIN Categorias ON Produtos.categoria_id = Categorias.id";
 if (isset($_GET["pesquisa_produto"])) {
     $nome_produto = $_GET["pesquisa_produto"];
     $produtos .= " WHERE nome_produto LIKE '%{$nome_produto}%' ";
@@ -49,7 +49,7 @@ if (!$Resultado) {
 
 <body>
     <header>
-        <div class="logo">Saude+</div>
+        <div class="logo">Saúde+</div>
 
         <div class="aba_pesquisa">
             <form action="produtos.php" method="get">
@@ -64,10 +64,10 @@ if (!$Resultado) {
                 <div class="line3"></div>
             </div>
             <ul class="nav-list">
-                <li><a href="../paginas/home_page.html"><img src="../_fotos/home.jpg" width="20px"><b>Home</b></a></li>
-                <li><a href="../paginas/sobre.html"><img src="../_fotos/sobre nos.jpg" width="20px"><b>Sobre Nós</b></a></li>
-                <li><a href="../paginas/contato.html"><img src="../_fotos/contate-nos.jpg" width="20px"><b>Contatos</b></a></li>
-                <li><a href="../paginas/login.php"><img src="../_fotos/Usuario.jpg" width="20px"><b>Login</b></a></li>
+                <li><a href="../paginas/home_page.html"><b>Home</b></a></li>
+                <li><a href="../paginas/sobre.html"><b>Sobre Nós</b></a></li>
+                <li><a href="../paginas/contato.html"><b>Contatos</b></a></li>
+                <li><a href="../paginas/login.php"><b>Login</b></a></li>
             </ul>
 
 
@@ -112,7 +112,7 @@ if (!$Resultado) {
 
                 <?php while ($consulta = mysqli_fetch_assoc($Resultado)) { ?>
                     <div class="product-card" data-price="<?php echo $consulta["preco"] ?>" data-category="<?php echo $consulta["nome_categoria"] ?>">
-                        <img src="<?php echo $consulta["imgproduto"] ?>" width="30px" alt="Dipirona em Gotas" class="product-image">
+                        <img src="<?php echo $consulta["img_produto"] ?>" width="30px" alt="Dipirona em Gotas" class="product-image">
                         <h3><?php echo $consulta['nome_produto'] ?></h3>
                         <p><?php echo $consulta['descricao_curta'] ?></p>
                         <h3>Preço:<?php echo real_format($consulta["preco"]) ?></h3>
@@ -120,6 +120,9 @@ if (!$Resultado) {
                     </div>
                 <?php } ?>
 
+                <?php
+                mysqli_close($conecta);
+                ?>
 
             </div>
         </main>

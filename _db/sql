@@ -21,8 +21,8 @@ CREATE TABLE Categorias (
 -- Tabela de Produtos
 CREATE TABLE Produtos (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nome_produto VARCHAR 100 NOT NULL,
-    descricao_curta VARCHAR 255,
+    nome_produto VARCHAR(100) NOT NULL,
+    descricao_curta VARCHAR(255),
     descricao_longa TEXT,
     img_produto VARCHAR(200) NOT NULL,
     preco DECIMAL(10, 2) NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE Produtos (
 -- Tabela de Usuários
 CREATE TABLE Usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
+    nome_completo VARCHAR(100) NOT NULL,
     username VARCHAR(50) NOT NULL UNIQUE,
     email VARCHAR(100) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL, -- Usar um hash para armazenar senhas
@@ -53,7 +53,7 @@ VALUES
     ('Antialérgico');
 
 -- Inserção de Usuários com senhas de exemplo (recomenda-se usar um hash real)
-INSERT INTO Usuarios (nome, username, email, senha) 
+INSERT INTO Usuarios (nome_completo, username, email, senha) 
 VALUES 
     ('zz', 'zz', 'zz@gmail.com', 'zz123'),
     ('Rafaela', 'rafa', 'rafa@gmail.com', 'rafa123'),

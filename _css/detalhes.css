@@ -1,0 +1,131 @@
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* RESET CSS */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --cor-principal: #03346E;
+    --cor-secundaria: #3377B7;
+    --cor-terciaria: #021526;
+    --cor--sexta: #800000;
+    --cor-fundo: #F5F7FA;
+    --cor-texto: #333;
+    --cor-contrastante: #090e38;
+    --cor-hover: #0264A8;
+}
+
+/* HEADER */
+header {
+    background-color: var(--cor-principal);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo h2 {
+    font-size: 24px;
+    font-weight: 600;
+    background-color: var(--cor--sexta);
+    border-radius: 12px;
+}
+
+header nav {
+    display: flex;
+    gap: 20px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+header nav a:hover {
+    color: var(--cor-contrastante);
+}
+
+/* MAIN */
+main {
+    padding: 40px;
+    background-color: var(--cor-fundo);
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.detalhes {
+    display: flex;
+    gap: 20px;
+    background-color: var(--cor-principal);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    color: white;
+    max-width: 900px;
+    width: 100%;
+}
+
+.detalhes img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.informacao {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.informacao h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--cor-fundo);
+}
+
+.informacao p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--cor-fundo);
+}
+
+.informacao p b {
+    color: var(--cor-terciaria);
+}
+
+.botoes{
+    display: flex;
+    align-items: self-start;
+    flex-direction: column;
+    justify-content:flex-start;
+    gap: 5px;
+}
+
+.detalhes a {
+    width: 100%;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: var(--cor-secundaria);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    margin: auto;
+    transition: background-color 0.3s;
+}
+
+.detalhes a:hover {
+    background-color: var(--cor-hover);
+}

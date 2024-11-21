@@ -10,15 +10,14 @@ if (!isset($_SESSION["user_portal"])) {
     $mensagem_login = "";
 } else {
     $usuario = $_SESSION["user_portal"];
-    $consulta = "SELECT nome FROM Usuarios
-                WHERE id = {$usuario}";
+    $consulta = "SELECT nome_completo FROM Usuarios WHERE id = {$usuario}";
     $saudacao = mysqli_query($conecta, $consulta);
     $saudacao_login = mysqli_fetch_assoc($saudacao);
-    $nome = $saudacao_login['nome'];
+    $nome = $saudacao_login['nome_completo'];
     $mensagem_login = "você já conectou a sua conta " . "($nome)";
 }
 //condições do fomulario via POST
-if (isset($_POST["email"])) {
+if (isset($_POST["email"]) && isset($_POST['senha'])) {
     $email    =  $_POST['email'];
     $senha    =  $_POST['senha'];
 
@@ -53,13 +52,6 @@ if (isset($_POST["email"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-
     <!-- LINKS -->
     <link rel="stylesheet" href="../_css/login.css">
     <title>cadastro</title>
@@ -80,7 +72,7 @@ if (isset($_POST["email"])) {
                         
                     </div>
                     <div class="logomarca">
-                        <h1 class="logo1">Saude+</h1>
+                        <h1 class="logo1">Saúde+</h1>
                             
                     </div>
                 </div>
@@ -112,12 +104,13 @@ if (isset($_POST["email"])) {
                 <p id="mensagem_login" class="mensagem_login"><?php echo $mensagem_login ?></p>
             </form>
         </div>
-         
     </div>
 
     
 
-    
+    <?php
+    mysqli_close($conecta);
+    ?>
 </body>
 <script>
     let mensagemError = document.getElementById("mensagemError");
